@@ -16,14 +16,20 @@ public class CallReceiver extends Receiver {
     @Override
     protected void onIncomingCallAnswered(Context ctx) {
         Log.i("CallReceiver", "onIncomingCallAnswered");
+        Log.i("Before Change", "notification volume "+ Helpers.getNotificationStreamVolume());
         AppGlobals.sPreviousNotificationState = Helpers.getNotificationStreamVolume();
+        AppGlobals.sPreviousRingerMode = Helpers.getRingerMode();
         Helpers.changeNotificationVolume(AppGlobals.DEFAULT_NOTIFICATION_VOLUME);
+        Log.i("After Changed", "notification volume "+ Helpers.getNotificationStreamVolume());
     }
 
     @Override
     protected void onIncomingCallEnded(Context ctx) {
         Log.i("CallReceiver", "onIncomingCallEnded");
+        Log.i("Before Change", "notification volume "+ Helpers.getNotificationStreamVolume());
         Helpers.changeNotificationVolume(AppGlobals.sPreviousNotificationState);
+        Helpers.setBackRingerMode(AppGlobals.sPreviousRingerMode);
+        Log.i("After Change", "notification volume "+ Helpers.getNotificationStreamVolume());
     }
 
     @Override
@@ -37,6 +43,7 @@ public class CallReceiver extends Receiver {
     protected void onOutgoingCallEnded(Context ctx) {
         Log.i("CallReceiver", "onOutgoingCallEnded");
         Helpers.changeNotificationVolume(AppGlobals.sPreviousNotificationState);
+        Helpers.setBackRingerMode(AppGlobals.sPreviousRingerMode);
     }
 
     @Override

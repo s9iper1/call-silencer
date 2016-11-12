@@ -14,13 +14,15 @@ public abstract class Receiver extends BroadcastReceiver {
     //The receiver will be recreated whenever android feels like it.  We need a static variable to remember data between instantiations
 
     private static int lastState = TelephonyManager.CALL_STATE_IDLE;
-    private static boolean isIncoming; //because the passed incoming is only valid in ringing
+    private static boolean isIncoming;
 
 
     @Override
     public void onReceive(Context context, Intent intent) {
+        if (!Helpers.getButtonState()) {
+            return;
+        }
 
-        //We listen to two intents.  The new outgoing call only tells us of an outgoing call.  We use it to get the number.
         if (intent.getAction().equals("android.intent.action.NEW_OUTGOING_CALL")) {
 
         }
@@ -37,7 +39,6 @@ public abstract class Receiver extends BroadcastReceiver {
             else if(stateStr.equals(TelephonyManager.EXTRA_STATE_RINGING)){
                 state = TelephonyManager.CALL_STATE_RINGING;
             }
-
 
             onCallStateChanged(context, state, number);
         }

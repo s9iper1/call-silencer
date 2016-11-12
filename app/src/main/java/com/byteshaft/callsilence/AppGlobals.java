@@ -13,6 +13,7 @@ public class AppGlobals extends Application {
     public static int sPreviousNotificationState = 3;
     public static String sButtonState = "button_state";
     public static final int DEFAULT_NOTIFICATION_VOLUME = 0;
+    public static int sPreviousRingerMode = 2;
 
     @Override
     public void onCreate() {

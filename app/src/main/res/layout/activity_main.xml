@@ -8,19 +8,60 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@android:color/black"
     tools:context="com.byteshaft.callsilence.MainActivity">
 
 
     <Switch
-        android:text="State"
+        android:text="@string/state"
         android:layout_margin="2dp"
         android:textSize="20sp"
+        android:textColor="@android:color/darker_gray"
         android:textStyle="bold|italic"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/apptheme_switch_inner_holo_light"
+        android:background="@drawable/apptheme_switch_track_holo_light"
         android:id="@+id/service_switch" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:weightSum="2"
+        android:layout_marginTop="10dp"
+        android:layout_alignEnd="@+id/service_switch">
+
+        <Button
+            android:text="@string/rate_app"
+            android:layout_gravity="left"
+            android:padding="5dp"
+            android:layout_margin="2dp"
+            android:textSize="16sp"
+            android:textStyle="italic"
+            android:textColor="@android:color/white"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:background="@drawable/apptheme_btn_default_holo_dark"
+            android:layout_height="wrap_content"
+            android:id="@+id/rate_app" />
+
+        <Button
+            android:text="@string/share_app"
+            android:layout_gravity="right"
+            android:layout_margin="2dp"
+            android:textSize="16sp"
+            android:textStyle="italic"
+            android:textColor="@android:color/white"
+            android:padding="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/apptheme_btn_default_holo_dark"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/share_app" />
+
+    </LinearLayout>
+
 </RelativeLayout>

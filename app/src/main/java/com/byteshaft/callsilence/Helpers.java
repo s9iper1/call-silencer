@@ -32,6 +32,29 @@ public class Helpers {
         if (audioManager.getStreamVolume(AudioManager.STREAM_NOTIFICATION) != value) {
             audioManager.setStreamVolume(AudioManager.STREAM_NOTIFICATION, value, 0);
         }
+        if (audioManager.getRingerMode() == AudioManager.RINGER_MODE_VIBRATE) {
+            audioManager.setRingerMode(AudioManager.RINGER_MODE_SILENT);
+        }
+    }
+
+    public static int getRingerMode() {
+        AudioManager am =
+                (AudioManager) AppGlobals.getContext().getSystemService(Context.AUDIO_SERVICE);
+        return am.getRingerMode();
+    }
+
+    public static void setBackRingerMode(final int mode) {
+        final AudioManager am =
+                (AudioManager) AppGlobals.getContext().getSystemService(Context.AUDIO_SERVICE);
+        if (am.getRingerMode() == AudioManager.RINGER_MODE_SILENT) {
+            am.setRingerMode(AudioManager.RINGER_MODE_VIBRATE);
+        }
+        new android.os.Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                am.setRingerMode(mode);
+            }
+        }, 1000);
     }
 
     public static void changeNotificationVolume(int value) {
@@ -48,6 +71,6 @@ public class Helpers {
     public static int getNotificationStreamVolume() {
         AudioManager am =
                 (AudioManager) AppGlobals.getContext().getSystemService(Context.AUDIO_SERVICE);
-        return am.getStreamMaxVolume(AudioManager.STREAM_NOTIFICATION);
+        return am.getStreamVolume(AudioManager.STREAM_NOTIFICATION);
     }
 }
