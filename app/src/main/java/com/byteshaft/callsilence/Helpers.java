@@ -27,14 +27,21 @@ public class Helpers {
     }
 
     private static void changeVolume(int value) {
-        AudioManager audioManager =
+        final AudioManager audioManager =
                 (AudioManager) AppGlobals.getContext().getSystemService(Context.AUDIO_SERVICE);
         if (audioManager.getStreamVolume(AudioManager.STREAM_NOTIFICATION) != value) {
             audioManager.setStreamVolume(AudioManager.STREAM_NOTIFICATION, value, 0);
         }
-        if (audioManager.getRingerMode() == AudioManager.RINGER_MODE_VIBRATE) {
-            audioManager.setRingerMode(AudioManager.RINGER_MODE_SILENT);
-        }
+        new android.os.Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (audioManager.getRingerMode() == AudioManager.RINGER_MODE_VIBRATE) {
+                    audioManager.setRingerMode(AudioManager.RINGER_MODE_SILENT);
+                } else if (audioManager.getRingerMode() == AudioManager.RINGER_MODE_SILENT) {
+                    audioManager.setRingerMode(AudioManager.RINGER_MODE_VIBRATE);
+                }
+            }
+        }, 500);
     }
 
     public static int getRingerMode() {
@@ -46,15 +53,12 @@ public class Helpers {
     public static void setBackRingerMode(final int mode) {
         final AudioManager am =
                 (AudioManager) AppGlobals.getContext().getSystemService(Context.AUDIO_SERVICE);
-        if (am.getRingerMode() == AudioManager.RINGER_MODE_SILENT) {
-            am.setRingerMode(AudioManager.RINGER_MODE_VIBRATE);
-        }
         new android.os.Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 am.setRingerMode(mode);
             }
-        }, 1000);
+        }, 1500);
     }
 
     public static void changeNotificationVolume(int value) {

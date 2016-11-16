@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="@android:color/black"
+    android:background="@android:color/white"
     tools:context="com.byteshaft.callsilence.MainActivity">
 
 
@@ -23,7 +23,7 @@
         android:padding="10dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/apptheme_switch_track_holo_light"
+        android:background="@drawable/apptheme_switch_inner_holo_light"
         android:id="@+id/service_switch" />
 
     <LinearLayout
@@ -40,11 +40,12 @@
             android:padding="5dp"
             android:layout_margin="2dp"
             android:textSize="16sp"
+            android:drawableLeft="@mipmap/rate"
             android:textStyle="italic"
             android:textColor="@android:color/white"
             android:layout_weight="1"
             android:layout_width="0dp"
-            android:background="@drawable/apptheme_btn_default_holo_dark"
+            android:background="@drawable/apptheme_btn_default_holo_light"
             android:layout_height="wrap_content"
             android:id="@+id/rate_app" />
 
@@ -52,12 +53,13 @@
             android:text="@string/share_app"
             android:layout_gravity="right"
             android:layout_margin="2dp"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:textStyle="italic"
             android:textColor="@android:color/white"
             android:padding="5dp"
+            android:drawableLeft="@android:drawable/ic_menu_share"
             android:layout_weight="1"
-            android:background="@drawable/apptheme_btn_default_holo_dark"
+            android:background="@drawable/apptheme_btn_default_holo_light"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:id="@+id/share_app" />

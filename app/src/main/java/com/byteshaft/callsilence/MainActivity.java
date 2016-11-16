@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity implements
         rateButton.setOnClickListener(this);
         serviceSwitch.setOnCheckedChangeListener(this);
         checkAndRequestPermissions(false);
+        serviceSwitch.setChecked(Helpers.getButtonState());
     }
 
     private void checkAndRequestPermissions(boolean value) {

@@ -5,6 +5,6 @@
     <string name="Share_App_Body_middle"> , it is a great Android app that will silence your phone during phone call. You must be annoyed with vibration when Message or other Social Network Notification  came during call. You can download it here:</string>
     <string name="Share_App_Body_bottom">""</string>
     <string name="state">State</string>
-    <string name="rate_app">Rate app</string>
-    <string name="share_app">Share App</string>
+    <string name="rate_app">rate app</string>
+    <string name="share_app">share App</string>
 </resources>
