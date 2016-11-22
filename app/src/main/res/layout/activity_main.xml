@@ -26,6 +26,16 @@
         android:background="@drawable/apptheme_switch_inner_holo_light"
         android:id="@+id/service_switch" />
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:layout_margin="2dp"
+        android:padding="5dp"
+        android:layout_below="@+id/service_switch"
+        android:text="@string/text"
+        android:textStyle="italic"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -65,5 +75,15 @@
             android:id="@+id/share_app" />
 
     </LinearLayout>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/icon_launcher"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginBottom="10dp"
+        android:id="@+id/imageView" />
 
 </RelativeLayout>
